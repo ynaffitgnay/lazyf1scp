@@ -1,0 +1,330 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2019.1.op (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date              : Mon Jul  6 19:12:20 2020
+| Host              : ip-172-31-45-62.ec2.internal running 64-bit CentOS Linux release 7.7.1908 (Core)
+| Command           : report_timing_summary -cell WRAPPER_INST/CL -file /home/centos/src/project_data/f1/9913/build/reports/20_07_06-180142.timing_summary_route_design.rpt
+| Design            : top_sp
+| Device            : xcvu9p-flgb2104
+| Speed File        : -2  PRODUCTION 1.23 03-18-2019
+| Temperature Grade : I
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.574        0.000                      0                27421        0.010        0.000                      0                27421        3.468        0.000                       0                 13468  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock                 Waveform(ns)           Period(ns)      Frequency(MHz)
+-----                 ------------           ----------      --------------
+refclk_100            {0.000 5.000}          10.000          100.000         
+  qpll1outclk_out[3]  {0.000 0.100}          0.200           5000.001        
+    txoutclk_out[15]  {0.000 1.000}          2.000           500.000         
+      clk_core        {0.000 2.000}          4.000           250.000         
+        clk_main_a0   {0.000 4.000}          8.000           125.000         
+        tck           {0.000 16.000}         32.000          31.250          
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock                    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+        clk_main_a0        0.574        0.000                      0                27421        0.010        0.000                      0                27421        3.468        0.000                       0                 13467  
+        tck                                                                                                                                                           15.725        0.000                       0                     1  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_main_a0
+  To Clock:  clk_main_a0
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.574ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.010ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.468ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.574ns  (required time - arrival time)
+  Source:                 WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg[74][5]/C
+                            (rising edge-triggered cell FDRE clocked by clk_main_a0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[15][17]/D
+                            (rising edge-triggered cell FDRE clocked by clk_main_a0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_main_a0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_main_a0 rise@8.000ns - clk_main_a0 rise@0.000ns)
+  Data Path Delay:        7.269ns  (logic 1.139ns (15.669%)  route 6.130ns (84.331%))
+  Logic Levels:           12  (LUT5=3 LUT6=7 MUXF8=2)
+  Clock Path Skew:        -0.124ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    6.125ns = ( 14.125 - 8.000 ) 
+    Source Clock Delay      (SCD):    6.018ns
+    Clock Pessimism Removal (CPR):    -0.231ns
+  Clock Uncertainty:      0.058ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.092ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      3.055ns (routing 0.453ns, distribution 2.602ns)
+  Clock Net Delay (Destination): 2.709ns (routing 0.412ns, distribution 2.297ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Partition      Netlist Resource(s)
+  -------------------------------------------------------------------    ----------------------------------
+                         (clock clk_main_a0 rise edge)
+                                                      0.000     0.000 r                 
+    GTYE4_CHANNEL_X1Y35  GTYE4_CHANNEL                0.000     0.000 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/xdma_0_pcie4_ip_gt_i/inst/gen_gtwizard_gtye4_top.xdma_0_pcie4_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[32].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=8, routed)           0.085     0.085    static         static_sh/pcie_inst/inst/gt_txoutclk[0]
+    BUFG_GT_X1Y212       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+                         net (fo=149525, routed)      2.602     2.817    boundary       WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_in1
+    MMCM_X1Y7            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.127     2.690 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/mmcme3_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.245     2.935    reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_out1_kernel_clks_clkwiz_sys_clk_0
+    BUFGCE_X1Y181        BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.963 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clkout1_buf/O
+    X4Y7 (CLOCK_ROOT)    net (fo=35093, routed)       3.055     6.018    boundary       WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/clk_main_a0
+    SLR Crossing[1->0]   
+    SLICE_X71Y117        FDRE                                         r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg[74][5]/C
+  -------------------------------------------------------------------    ----------------------------------
+    SLICE_X71Y117        FDRE (Prop_DFF2_SLICEL_C_Q)
+                                                      0.081     6.099 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg[74][5]/Q
+                         net (fo=130, routed)         0.734     6.833    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg_n_0_[74][5]
+    SLICE_X73Y160        MUXF8 (Prop_F8MUX_BOT_SLICEL_S_O)
+                                                      0.069     6.902 f  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[31][31]_i_42/O
+                         net (fo=1, routed)           0.289     7.191    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[31][31]_i_42_n_0
+    SLICE_X73Y160        LUT6 (Prop_H6LUT_SLICEL_I0_O)
+                                                      0.150     7.341 f  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][31]_i_13/O
+                         net (fo=12, routed)          0.629     7.970    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][31]_i_13_n_0
+    SLICE_X71Y106        LUT5 (Prop_C5LUT_SLICEL_I0_O)
+                                                      0.136     8.106 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[236]_i_40/O
+                         net (fo=4, routed)           0.243     8.349    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[236]_i_40_n_0
+    SLICE_X71Y106        LUT6 (Prop_B6LUT_SLICEL_I0_O)
+                                                      0.098     8.447 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][31]_i_25/O
+                         net (fo=40, routed)          0.306     8.753    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][31]_i_25_n_0
+    SLICE_X72Y98         LUT6 (Prop_H6LUT_SLICEM_I4_O)
+                                                      0.101     8.854 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][20]_i_5/O
+                         net (fo=96, routed)          0.535     9.389    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][20]_i_5_n_0
+    SLICE_X71Y90         LUT5 (Prop_D5LUT_SLICEL_I4_O)
+                                                      0.157     9.546 f  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[201]_i_11/O
+                         net (fo=4, routed)           0.283     9.829    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[201]_i_11_n_0
+    SLICE_X71Y89         LUT6 (Prop_G6LUT_SLICEL_I5_O)
+                                                      0.035     9.864 f  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[201]_i_8/O
+                         net (fo=4, routed)           0.191    10.055    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[201]_i_8_n_0
+    SLICE_X69Y88         LUT6 (Prop_G6LUT_SLICEL_I5_O)
+                                                      0.050    10.105 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[195]_i_4/O
+                         net (fo=10, routed)          0.382    10.487    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__update_queue[195]_i_4_n_0
+    SLICE_X68Y77         LUT6 (Prop_H6LUT_SLICEM_I0_O)
+                                                      0.101    10.588 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l39_next[92][31]_i_2_lopt_merged_replica_5/O
+                         net (fo=17, routed)          0.865    11.453    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l39_next[92][31]_i_2_n_0_repN_5
+    SLICE_X64Y27         MUXF8 (Prop_F8MUX_BOT_SLICEM_S_O)
+                                                      0.074    11.527 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[31][17]_i_9/O
+                         net (fo=1, routed)           0.538    12.065    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[31][17]_i_9_n_0
+    SLICE_X73Y39         LUT6 (Prop_H6LUT_SLICEL_I1_O)
+                                                      0.036    12.101 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][17]_i_3/O
+                         net (fo=1, routed)           0.405    12.506    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][17]_i_3_n_0
+    SLICE_X73Y64         LUT5 (Prop_H6LUT_SLICEL_I2_O)
+                                                      0.051    12.557 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next[31][17]_i_1/O
+                         net (fo=32, routed)          0.730    13.287    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l60[17]
+    SLICE_X76Y99         FDRE                                         r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[15][17]/D
+  -------------------------------------------------------------------    ----------------------------------
+
+                         (clock clk_main_a0 rise edge)
+                                                      8.000     8.000 r                 
+    GTYE4_CHANNEL_X1Y35  GTYE4_CHANNEL                0.000     8.000 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/xdma_0_pcie4_ip_gt_i/inst/gen_gtwizard_gtye4_top.xdma_0_pcie4_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[32].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=8, routed)           0.078     8.078    static         static_sh/pcie_inst/inst/gt_txoutclk[0]
+    BUFG_GT_X1Y212       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     8.192 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+                         net (fo=149525, routed)      2.355    10.547    boundary       WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_in1
+    MMCM_X1Y7            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.630    11.177 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/mmcme3_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.215    11.392    reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_out1_kernel_clks_clkwiz_sys_clk_0
+    BUFGCE_X1Y181        BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024    11.416 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clkout1_buf/O
+    X4Y7 (CLOCK_ROOT)    net (fo=35093, routed)       2.709    14.125    boundary       WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/clk_main_a0
+    SLR Crossing[1->0]   
+    SLICE_X76Y99         FDRE                                         r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[15][17]/C
+                         clock pessimism             -0.231    13.894                     
+                         clock uncertainty           -0.058    13.836                     
+    SLICE_X76Y99         FDRE (Setup_HFF2_SLICEM_C_D)
+                                                      0.025    13.861    reconfigurable   WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l64_next_reg[15][17]
+  -------------------------------------------------------------------
+                         required time                         13.861                     
+                         arrival time                         -13.287                     
+  -------------------------------------------------------------------
+                         slack                                  0.574                     
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.010ns  (arrival time - required time)
+  Source:                 WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l39_next_reg[111][2]/C
+                            (rising edge-triggered cell FDRE clocked by clk_main_a0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg[188][2]/D
+                            (rising edge-triggered cell FDRE clocked by clk_main_a0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_main_a0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (clk_main_a0 rise@0.000ns - clk_main_a0 rise@0.000ns)
+  Data Path Delay:        0.169ns  (logic 0.058ns (34.320%)  route 0.111ns (65.681%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.097ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    6.012ns
+    Source Clock Delay      (SCD):    6.146ns
+    Clock Pessimism Removal (CPR):    -0.231ns
+  Clock Net Delay (Source):      2.730ns (routing 0.412ns, distribution 2.318ns)
+  Clock Net Delay (Destination): 3.049ns (routing 0.453ns, distribution 2.596ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Partition      Netlist Resource(s)
+  -------------------------------------------------------------------    ----------------------------------
+                         (clock clk_main_a0 rise edge)
+                                                      0.000     0.000 r                 
+    GTYE4_CHANNEL_X1Y35  GTYE4_CHANNEL                0.000     0.000 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/xdma_0_pcie4_ip_gt_i/inst/gen_gtwizard_gtye4_top.xdma_0_pcie4_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[32].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=8, routed)           0.078     0.078    static         static_sh/pcie_inst/inst/gt_txoutclk[0]
+    BUFG_GT_X1Y212       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+                         net (fo=149525, routed)      2.355     2.547    boundary       WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_in1
+    MMCM_X1Y7            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.630     3.177 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/mmcme3_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.215     3.392    reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_out1_kernel_clks_clkwiz_sys_clk_0
+    BUFGCE_X1Y181        BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     3.416 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clkout1_buf/O
+    X4Y7 (CLOCK_ROOT)    net (fo=35093, routed)       2.730     6.146    boundary       WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/clk_main_a0
+    SLR Crossing[1->0]   
+    SLICE_X74Y72         FDRE                                         r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l39_next_reg[111][2]/C
+  -------------------------------------------------------------------    ----------------------------------
+    SLICE_X74Y72         FDRE (Prop_DFF_SLICEM_C_Q)
+                                                      0.058     6.204 r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__l39_next_reg[111][2]/Q
+                         net (fo=1, routed)           0.111     6.315    reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/p_355_in[2]
+    SLICE_X72Y72         FDRE                                         r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg[188][2]/D
+  -------------------------------------------------------------------    ----------------------------------
+
+                         (clock clk_main_a0 rise edge)
+                                                      0.000     0.000 r                 
+    GTYE4_CHANNEL_X1Y35  GTYE4_CHANNEL                0.000     0.000 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/xdma_0_pcie4_ip_gt_i/inst/gen_gtwizard_gtye4_top.xdma_0_pcie4_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[32].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=8, routed)           0.085     0.085    static         static_sh/pcie_inst/inst/gt_txoutclk[0]
+    BUFG_GT_X1Y212       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  static         static_sh/pcie_inst/inst/gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+                         net (fo=149525, routed)      2.602     2.817    boundary       WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_in1
+    MMCM_X1Y7            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.127     2.690 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/mmcme3_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.245     2.935    reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clk_out1_kernel_clks_clkwiz_sys_clk_0
+    BUFGCE_X1Y181        BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.963 r  reconfigurable WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/clkout1_buf/O
+    X4Y7 (CLOCK_ROOT)    net (fo=35093, routed)       3.049     6.012    boundary       WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/clk_main_a0
+    SLR Crossing[1->0]   
+    SLICE_X72Y72         FDRE                                         r  reconfigurable WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg[188][2]/C
+                         clock pessimism              0.231     6.243                     
+    SLICE_X72Y72         FDRE (Hold_HFF2_SLICEM_C_D)
+                                                      0.062     6.305    reconfigurable   WRAPPER_INST/CL/multi_inst[0].cascade.cascade_wrapper_inst/pl/m/__var_reg[188][2]
+  -------------------------------------------------------------------
+                         required time                         -6.305                     
+                         arrival time                           6.315                     
+  -------------------------------------------------------------------
+                         slack                                  0.010                     
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_main_a0
+Waveform(ns):       { 0.000 4.000 }
+Period(ns):         8.000
+Sources:            { WRAPPER_INST/SH/kernel_clks_i/clkwiz_sys_clk/inst/CLK_CORE_DRP_I/clk_inst/mmcme3_adv_inst/CLKOUT0 }
+
+Check Type        Corner  Lib Pin     Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
+Min Period        n/a     RAMD32/CLK  n/a            1.064         8.000       6.936      SLICE_X104Y235  WRAPPER_INST/CL/normal_axil2sr.axil2sr_inst/input_write_FIFOs[0].wr_dataQ/Hull_SoftFIFO.softfifo_inst/buffer_reg_0_3_0_13/RAMA/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            0.532         4.000       3.468      SLICE_X107Y209  WRAPPER_INST/CL/normal_axil2sr.axil2sr_inst/rd_respQ/Hull_SoftFIFO.softfifo_inst/buffer_reg_0_3_42_55/RAMA/CLK
+High Pulse Width  Slow    RAMD32/CLK  n/a            0.532         4.000       3.468      SLICE_X104Y235  WRAPPER_INST/CL/normal_axil2sr.axil2sr_inst/input_write_FIFOs[0].wr_dataQ/Hull_SoftFIFO.softfifo_inst/buffer_reg_0_3_0_13/RAMA/CLK
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  tck
+  To Clock:  tck
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack       15.725ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         tck
+Waveform(ns):       { 0.000 16.000 }
+Period(ns):         32.000
+Sources:            { static_sh/SH_DEBUG_BRIDGE/inst/axi_jtag/inst/u_jtag_proc/tck_i_reg/Q }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
+Min Period        n/a     FDCE/C   n/a            0.550         32.000      31.450     SLICE_X71Y263  WRAPPER_INST/CL/HD_PR_Connection_S_IN_FDCE_tck/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.275         16.000      15.725     SLICE_X71Y263  WRAPPER_INST/CL/HD_PR_Connection_S_IN_FDCE_tck/C
+High Pulse Width  Slow    FDCE/C   n/a            0.275         16.000      15.725     SLICE_X71Y263  WRAPPER_INST/CL/HD_PR_Connection_S_IN_FDCE_tck/C
+
+
+
